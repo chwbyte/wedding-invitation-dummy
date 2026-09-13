@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Wedding of Arga &amp; Nadia</title>
+  <meta name="description" content="Undangan pernikahan Arga & Nadia — 20 Februari 2027" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Reusable ornaments -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="corner" viewBox="0 0 160 160">
+      <path d="M6 154 V40 Q6 6 40 6 H154" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M16 154 V48 Q16 16 48 16 H154" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+      <path d="M44 46 q13 -7 26 -16 q-9 15 -21 23 z" fill="currentColor" opacity="0.55"/>
+      <path d="M56 52 q9 -5 18 -9" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.65"/>
+    </symbol>
+  </svg>
+
+  <!-- ============ COVER ============ -->
+  <div id="cover" class="cover">
+    <div class="cover__bg" style="background-image:url('images/cover.jpg')"></div>
+    <div class="cover__overlay"></div>
+    <div class="cover__inner">
+      <svg class="corner corner--tl"><use href="#corner"/></svg>
+      <svg class="corner corner--tr"><use href="#corner"/></svg>
+      <svg class="corner corner--bl"><use href="#corner"/></svg>
+      <svg class="corner corner--br"><use href="#corner"/></svg>
+      <p class="cover__invite">The Wedding Of</p>
+      <h1 class="cover__names"><span id="coverGroom">Arga</span> <span class="amp">&amp;</span> <span id="coverBride">Nadia</span></h1>
+      <p class="cover__date" id="coverDate">20 Februari 2027</p>
+      <p class="cover__guest" id="coverGuest"></p>
+      <div class="countdown" id="countdown" aria-hidden="true">
+        <div class="cd"><span class="cd__num" id="cdDays">--</span><span class="cd__label">Hari</span></div>
+        <div class="cd"><span class="cd__num" id="cdHours">--</span><span class="cd__label">Jam</span></div>
+        <div class="cd"><span class="cd__num" id="cdMins">--</span><span class="cd__label">Menit</span></div>
+        <div class="cd"><span class="cd__num" id="cdSecs">--</span><span class="cd__label">Detik</span></div>
+      </div>
+      <button class="btn btn--primary" id="openBtn">Buka Undangan</button>
+    </div>
+  </div>
+
+  <!-- ============ INVITATION ============ -->
+  <main id="invitation" class="invitation" aria-hidden="true">
+
+    <!-- Verse -->
+    <div class="band" style="background-image:url('images/bg-floral.jpg')">
+      <div class="band__scrim"></div>
+      <div class="band__inner">
+        <section class="verse section">
+          <p class="verse__text">&ldquo;Karena itu, apa yang telah dipersatukan Allah, tidak boleh diceraikan manusia.&rdquo;</p>
+          <p class="verse__ref">Markus 10:9</p>
+        </section>
+      </div>
+    </div>
+
+    <!-- Greeting -->
+    <section class="greeting section">
+      <p class="greeting__to">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+      <p class="greeting__name" id="greetingName">Tamu Undangan</p>
+      <p class="greeting__body">Dengan penuh sukacita dan hormat, kami mengundang Anda untuk hadir pada acara pernikahan kami.</p>
+    </section>
+
+    <!-- Bride & Groom -->
+    <section class="couple section">
+      <div class="section__label">Bride &amp; Groom</div>
+      <p class="couple__intro">Atas berkat dan rahmat Tuhan, dengan gembira kami mengundang Anda untuk menyaksikan awal dari selamanya kami.</p>
+      <div class="couple__photo reveal">
+        <img id="couplePhoto" src="images/couple.jpg" alt="Arga & Nadia" />
+      </div>
+      <div class="couple__cards">
+        <div class="person reveal">
+          <div class="person__photo"><img id="groomPhoto" src="images/groom.jpg" alt="The Groom" /></div>
+          <p class="person__role">The Groom</p>
+          <h3 class="person__name" id="groomName">Arga</h3>
+          <p class="person__parents" id="groomParents"></p>
+        </div>
+        <div class="person reveal">
+          <div class="person__photo"><img id="bridePhoto" src="images/bride.jpg" alt="The Bride" /></div>
+          <p class="person__role">The Bride</p>
+          <h3 class="person__name" id="brideName">Nadia</h3>
+          <p class="person__parents" id="brideParents"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Story -->
+    <div class="band" style="background-image:url('images/bg-field.jpg')">
+      <div class="band__scrim"></div>
+      <div class="band__inner">
+        <section class="story section">
+          <div class="section__label">Our Story</div>
+          <div class="story__text" id="storyText"></div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Venue & RSVP -->
+    <div class="band" style="background-image:url('images/bg-venue.jpg')">
+      <div class="band__scrim"></div>
+      <div class="band__inner">
+        <section class="events section">
+          <div class="section__label">Venue &amp; RSVP</div>
+          <p class="events__intro">Kami mohon konfirmasi kehadiran Anda dengan mengisi RSVP di bawah ini.</p>
+          <div id="eventList" class="events__list"></div>
+          <p class="events__save">
+            <a class="btn btn--outline" id="saveDateBtn" href="#" target="_blank" rel="noopener">Simpan Tanggal (Google Calendar)</a>
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <!-- RSVP -->
+    <section class="rsvp section" id="rsvp">
+      <div class="section__label">RSVP</div>
+      <form id="rsvpForm" class="form" novalidate>
+        <div class="form__field">
+          <label for="rsvpName">Nama</label>
+          <input type="text" id="rsvpName" name="nama" placeholder="Nama Anda" required />
+        </div>
+        <div class="form__field">
+          <label>Konfirmasi Kehadiran</label>
+          <div class="form__radio">
+            <label><input type="radio" name="kehadiran" value="Hadir" checked /> Hadir</label>
+            <label><input type="radio" name="kehadiran" value="Berhalangan" /> Berhalangan</label>
+          </div>
+        </div>
+        <div class="form__field">
+          <label for="rsvpGuests">Jumlah Tamu</label>
+          <select id="rsvpGuests" name="jumlah">
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </div>
+        <div class="form__field">
+          <label for="rsvpMsg">Ucapan</label>
+          <textarea id="rsvpMsg" name="ucapan" rows="3" placeholder="Tulis ucapan untuk kedua mempelai (opsional)"></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary">Kirim RSVP</button>
+        <p class="form__note" id="rsvpNote"></p>
+      </form>
+    </section>
+
+    <!-- Wedding Wishes -->
+    <section class="wishes section" id="wishes">
+      <div class="section__label">Wedding Wishes</div>
+      <form id="wishForm" class="form form--compact" novalidate>
+        <div class="form__field">
+          <input type="text" id="wishName" name="nama" placeholder="Nama Anda" required />
+        </div>
+        <div class="form__field">
+          <textarea id="wishMsg" name="ucapan" rows="2" placeholder="Tulis doa dan harapan Anda" required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary">Kirim Ucapan</button>
+        <p class="form__note" id="wishNote"></p>
+      </form>
+      <div class="wishes__list" id="wishesList"></div>
+    </section>
+
+    <!-- Gallery -->
+    <div class="band band--dark" style="background-image:url('images/bg-bokeh.jpg')">
+      <div class="band__scrim"></div>
+      <div class="band__inner">
+        <section class="gallery section">
+          <div class="section__label">Gallery</div>
+          <div class="gallery__grid" id="galleryGrid"></div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Guide / Map -->
+    <div class="band" style="background-image:url('images/bg-venue.jpg')">
+      <div class="band__scrim"></div>
+      <div class="band__inner">
+        <section class="guide section" id="guide">
+          <div class="section__label">A Guide to Reception Venue</div>
+          <p class="guide__text" id="guideText"></p>
+          <p class="guide__cta">
+            <a class="btn btn--outline" id="guideMapBtn" href="#" target="_blank" rel="noopener">Buka di Google Maps</a>
+          </p>
+          <div class="guide__map reveal">
+            <iframe id="guideMap" src="" title="Peta lokasi resepsi" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Thank You -->
+    <div class="band" style="background-image:url('images/bg-floral.jpg')">
+      <div class="band__scrim"></div>
+      <div class="band__inner">
+        <section class="thanks section">
+          <p class="thanks__body">Kami merasa terhormat dan bersyukur atas kehadiran Anda di pernikahan kami. Doa dan restu Anda sangat berarti bagi kami.</p>
+          <p class="thanks__names" id="thanksNames">Arga &amp; Nadia</p>
+          <p class="thanks__hashtag" id="hashtag"></p>
+        </section>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>Arga &amp; Nadia &middot; 20.02.2027 &middot; Made with &hearts;</p>
+    </footer>
+  </main>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Tutup">&times;</button>
+    <img id="lightboxImg" src="" alt="" />
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
